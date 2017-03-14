@@ -22,8 +22,36 @@ namespace cis237assignment4
         {
             //Make new array for the collection
             droidCollection = new IDroid[sizeOfCollection];
+
             //set length of collection to 0
-            lengthOfCollection = 0;
+            this.AddHardCoded();
+            lengthOfCollection = 16;
+        }
+
+        protected void AddHardCoded()
+        {
+            // Add Protocol droids
+            droidCollection[0] = new ProtocolDroid("Carbonite", "Protocol", "Bronze", 3);
+            droidCollection[1] = new ProtocolDroid("Vanadium", "Protocol", "Bronze", 4);
+            droidCollection[2] = new ProtocolDroid("Quadranium", "Protocol", "Gold", 10);
+            droidCollection[3] = new ProtocolDroid("Carbonite", "Protocol", "Silver", 12);
+            // Add utility
+            droidCollection[4] = new UtilityDroid("Vanadium", "Utility", "Gold", true, false, true);
+            droidCollection[5] = new UtilityDroid("Carbonite", "Utility", "Silver", false, true, true);
+            droidCollection[6] = new UtilityDroid("Quadranium", "Utility", "Bronze", true, true, true);
+            droidCollection[7] = new UtilityDroid("Vanadium", "Utility", "Gold", false, false, false);
+            // Add astromech
+            droidCollection[8] = new AstromechDroid("Carbonite", "Astromech", "Bronze", false, false, false, true, 4);
+            droidCollection[9] = new AstromechDroid("Vanadium", "Astromech", "Bronze", false, false, false, true, 6);
+            droidCollection[10] = new AstromechDroid("Carbonite", "Astromech", "Bronze", false, true, false, true, 5);
+            droidCollection[11] = new AstromechDroid("Quadranium", "Astromech", "Bronze", true, false, false, true, 12);
+            // Add janitorial
+            droidCollection[12] = new JanitorDroid("Carbonite", "Astromech", "Gold", false, false, false, true, false);
+            droidCollection[13] = new JanitorDroid("Quadranium", "Astromech", "Bronze", true, false, false, true, false);
+            droidCollection[14] = new JanitorDroid("Quadranium", "Astromech", "Silver", true, false, true, true, false);
+            droidCollection[15] = new JanitorDroid("Carbonite", "Astromech", "Bronze", true, false, false, true, false);
+
+
         }
 
         //The Add method for a Protocol Droid. The parameters passed in match those needed for a protocol droid

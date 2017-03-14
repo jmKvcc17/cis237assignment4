@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace cis237assignment4
 {
-    //Abstract class that implements the IDroid interface
-    abstract class Droid : IDroid
+    //Abstract class that implements the IDroid and IComparable interface
+    abstract class Droid : IDroid, IComparable
     {
         //some protected variables for the class
         protected string material;
