@@ -5,7 +5,7 @@
 ## Author
 
 David Barnes
-
+Forked and updated by: Jesse Meachum
 ## Description
 
 The Jawas on Tatooine are pleased with the job you have done on the droid system so far. Since they started using it, they have decided that they would like to be able to sort their list of droids in two different ways. It is your job to create these sorts for them.

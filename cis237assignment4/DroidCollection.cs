@@ -50,8 +50,6 @@ namespace cis237assignment4
             droidCollection[13] = new JanitorDroid("Quadranium", "Astromech", "Bronze", true, false, false, true, false);
             droidCollection[14] = new JanitorDroid("Quadranium", "Astromech", "Silver", true, false, true, true, false);
             droidCollection[15] = new JanitorDroid("Carbonite", "Astromech", "Bronze", true, false, false, true, false);
-
-
         }
 
         //The Add method for a Protocol Droid. The parameters passed in match those needed for a protocol droid
