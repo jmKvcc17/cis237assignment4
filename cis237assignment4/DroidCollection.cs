@@ -14,6 +14,10 @@ namespace cis237assignment4
         private IDroid[] droidCollection;
         //Private variable to hold the length of the Collection
         private int lengthOfCollection;
+        private GenericStack<ProtocolDroid> ProtocolDroidStack = new GenericStack<ProtocolDroid>(); // ***************
+        private GenericStack<IDroid> UtilityDroidStack; // ***************
+        private GenericStack<IDroid> AstromechDroidStack; // ***************
+        private GenericStack<IDroid> JanitorDroidStack; // ***************
 
         //Constructor that takes in the size of the collection.
         //It sets the size of the internal array that will be used.
@@ -26,6 +30,13 @@ namespace cis237assignment4
             //set length of collection to 0
             this.AddHardCoded();
             lengthOfCollection = 16;
+            printDroidLinkedList();
+        }
+
+        protected void printDroidLinkedList()
+        {
+            ProtocolDroidStack.AddToFront((ProtocolDroid)droidCollection[0]);
+            ProtocolDroidStack.Display();
         }
 
         protected void AddHardCoded()
