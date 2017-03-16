@@ -57,6 +57,16 @@ namespace cis237assignment4
             return menuChoice;
         }
 
+        // DroidCollection calls the SortByDroidsMethod, 
+        // displays instructions and prompt
+        public void SortDroidsByType()
+        {
+            droidCollection.SortDroidsByModel();
+            Console.WriteLine("Droid order: Astromech, Janitor, Utility, Protocol.");
+            Console.WriteLine("Droids have been sorted.");
+            Console.WriteLine();
+        }
+
         //Method to do the work of creating a new droid
         public void CreateDroid()
         {

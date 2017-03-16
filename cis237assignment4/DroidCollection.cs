@@ -33,8 +33,6 @@ namespace cis237assignment4
             this.AddHardCoded();
             lengthOfCollection = 16;
 
-            SortDroidsByModel();
-
         }
 
         // SORT ORDER IN QUEUE: Astromech, Janitor, Utility, Protocol
@@ -81,9 +79,7 @@ namespace cis237assignment4
             {
                  if (!DroidQueue.IsEmpty)
                      droidCollection[i] = DroidQueue.RemoveFromBack();
-             }
-
-            //droidCollection[0] = DroidQueue.RemoveFromBack();
+            }
         }
 
         protected void AddHardCoded()

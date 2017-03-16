@@ -41,6 +41,8 @@ namespace cis237assignment4
                         userInterface.PrintDroidList();
                         break;
                     case 3:
+                        
+                        userInterface.SortDroidsByType();
                         break;
                     case 4:
                         break;
