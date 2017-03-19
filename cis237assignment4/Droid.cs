@@ -29,9 +29,11 @@ namespace cis237assignment4
             get { return model; }
         }
 
-        int IComparable.CompareTo(object obj)
+        int IComparable<Droid>.CompareTo(Droid array)
         {
-            return 0;
+            //(Droid)array;
+
+            return this.TotalCost.CompareTo(array.TotalCost);
         }
 
         //Constructor that takes the main 3 parameters shared amongst all 4 types of droids
