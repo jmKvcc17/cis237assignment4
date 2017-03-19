@@ -21,6 +21,8 @@ namespace cis237assignment4
 
         private GenericQueue<Droid> DroidQueue = new GenericQueue<Droid>();
 
+        private MergeSort mergeDroids = new MergeSort();
+
         //Constructor that takes in the size of the collection.
         //It sets the size of the internal array that will be used.
         //It also sets the length of the collection to zero since nothing is added yet.
@@ -80,6 +82,11 @@ namespace cis237assignment4
                  if (!DroidQueue.IsEmpty)
                      droidCollection[i] = DroidQueue.RemoveFromBack();
             }
+        }
+
+        public void MergeSortDroids()
+        {
+            mergeDroids.Sort(droidCollection, 0, 9, 9);
         }
 
         protected void AddHardCoded()

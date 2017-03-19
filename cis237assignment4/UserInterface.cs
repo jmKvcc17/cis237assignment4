@@ -67,6 +67,12 @@ namespace cis237assignment4
             Console.WriteLine();
         }
 
+        public void SortDroidsByTotalCost()
+        {
+            droidCollection.MergeSortDroids();
+            Console.WriteLine("Droids have been sorted.");
+        }
+
         //Method to do the work of creating a new droid
         public void CreateDroid()
         {
