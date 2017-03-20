@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace cis237assignment4
 {
     //Abstract class that implements the IDroid and IComparable interface
-    abstract class Droid : IDroid
+    abstract class Droid : IDroid, IComparable<Droid>
     {
         //some protected variables for the class
         protected string material;
@@ -31,10 +31,13 @@ namespace cis237assignment4
 
         int IComparable<Droid>.CompareTo(Droid array)
         {
-            //(Droid)array;
-
             return this.TotalCost.CompareTo(array.TotalCost);
         }
+
+        //int IDroid.CompareTo(Droid array)
+        //{
+        //    return this.TotalCost.CompareTo(array.TotalCost);
+        //}
 
         //Constructor that takes the main 3 parameters shared amongst all 4 types of droids
         public Droid(string Material, string Model, string Color)
