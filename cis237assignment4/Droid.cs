@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace cis237assignment4
 {
     //Abstract class that implements the IDroid and IComparable interface
-    abstract class Droid : IDroid, IComparable<Droid>
+    abstract class Droid : IDroid, IComparable<IDroid>
     {
         //some protected variables for the class
         protected string material;
@@ -29,7 +29,7 @@ namespace cis237assignment4
             get { return model; }
         }
 
-        int IComparable<Droid>.CompareTo(Droid array)
+        int IComparable<IDroid>.CompareTo(IDroid array)
         {
             return this.TotalCost.CompareTo(array.TotalCost);
         }

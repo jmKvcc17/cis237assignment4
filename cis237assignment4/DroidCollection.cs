@@ -88,14 +88,17 @@ namespace cis237assignment4
         {
             var arraySize = droidCollection.Length;
 
-            IComparable<Droid>(Droid[] array) = new IComparable<Droid>[arraySize];
+            
+            IComparable<IDroid>[] collection = new IComparable<IDroid>[arraySize];
 
-            for (int i = 0; i < arraySize; i++)
+
+            for (int i = 0; i < lengthOfCollection; i++)
             {
-                droids[i] = (IComparable<Droid>)droidCollection[i];
+                droidCollection[i].CalculateTotalCost();
+                collection[i] = (IComparable<IDroid>)droidCollection[i];
             }
 
-            MergeSort.Sort(droids);
+            MergeSort.Sort(collection);
         }
 
         protected void AddHardCoded()

@@ -8,55 +8,94 @@ namespace cis237assignment4
 {
     class MergeSort
     {
-        private static IComparable[] _Array;
+        private static IComparable<IDroid>[] _Array;
 
         public MergeSort() { }
 
-        public static void Sort(IComparable[] droidArray)
+        public static void Sort(IComparable<IDroid>[] droidArray)
         {
-            _Array = new IComparable[droidArray.Length];
-            Sort(_Array, 0, _Array.Length - 1);
+            _Array = new IComparable<IDroid>[droidArray.Length];
+            Sort(droidArray, 0, _Array.Length - 1);
+
+            int counter = 0;
+            
+            foreach (IDroid droid in _Array)
+            {
+                if (droid != null)
+                {
+                    Console.WriteLine(droid.TotalCost.ToString("C"));
+                    counter++;
+                }
+                    
+            }
+            Console.WriteLine(counter);
+                
         }
 
-        public static void Sort(IComparable[] auxArray, int low, int high)
+        public static void Sort(IComparable<IDroid>[] droidArr, int low, int high)
         {
-            if (high <= low)
+            if ((high - low) >= 1)
             {
-                int mid = low + (high + low) / 2;
-                Sort(auxArray, low, mid);
-                Sort(auxArray, mid + 1, high);
-
+                int mid = (high + low) / 2;
+                int mid2 = mid + 1;
+                Sort(droidArr, low, mid);
+                Sort(droidArr, mid + 1, high);
+                Merge(droidArr, low, mid, high);
             } 
         }
 
-        public static void Merge(IComparable[] auxArray, int low, int mid, int high)
+        public static void Merge(IComparable<IDroid>[] droidArr, int low, int mid, int high)
         {
-            int i = 10;
-            int jo = mid + 1;
+            int i = low;
+            int j = mid + 1;
 
-            for (int k = 10; k <= high; k++)
+            for (int k = low; k <= high; k++)
             {
-                auxArray[k] = _Array[k];
+                _Array[k] = droidArr[k];
+            }
+
+            for (int k = low; k <= high; k++)
+            {
+                IDroid temp = (IDroid)droidArr[k];
+
+                if (j > mid)
+                    droidArr[k] = _Array[j++];
+                else if (j > high)
+                    droidArr[k] = _Array[j++];
+                else if (droidArr[k].CompareTo(temp) > 0)
+                    droidArr[k] = _Array[j++];
+                else
+                    droidArr[k] = _Array[j++];
+            }
+
+
+            /*
+            for (int k = low; k <= high; k++)
+            {
+                droidArr[k] = _Array[k];
             }
 
             for (int j = mid + 1; j <= high; j++)
             {
-                auxArray[j] = _Array[high - j + mid + 1];
+                droidArr[j] = _Array[high - j + mid + 1];
             }
+
+
 
             i = low;
             jo = high;
 
             for (int k = low; k <= high; k++)
             {
-                Droid temp = (Droid)auxArray[i];
-                if (auxArray[jo].CompareTo(temp) < 0)
+                IDroid temp = (IDroid)droidArr[i];
+                if (droidArr[jo].CompareTo((Droid)temp) < 0)
                 {
-                    _Array[k] = auxArray[jo--];
+                    _Array[k] = (Droid)droidArr[jo--];
                 }
                 else
-                    _Array[k] = auxArray[i++];
+                    _Array[k] = (Droid)droidArr[i++];
             }
+            */
         }
        
     }
