@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace cis237assignment4
 {
+    // Generic queue class, takes in all droids as data
     class GenericQueue<T>
     {
         protected class Node
@@ -18,6 +19,7 @@ namespace cis237assignment4
         protected Node _lastNode;
         protected int _nodeSize;
 
+        // checks if queue is empty
         public bool IsEmpty
         {
             get
@@ -27,11 +29,14 @@ namespace cis237assignment4
 
         }
 
+        // returns the size of the queue
         public int Size
         {
             get { return _nodeSize; }
         }
 
+        // Adds the droid to the front of the 
+        // queue
         public void AddToFront(T data)
         {
             Node oldHead = _firstNode;
@@ -45,22 +50,8 @@ namespace cis237assignment4
                 _lastNode = _firstNode;
         }
 
-        public void AddToBack(T data)
-        {
-            Node oldTail = _lastNode;
-            _lastNode = new Node();
-
-            _lastNode.Data = data;
-            _lastNode.Next = null;
-
-            if (IsEmpty)
-                _firstNode = _lastNode;
-            else
-                oldTail.Next = _lastNode;
-
-            _nodeSize++;
-        }
-
+        // Removes droid from the front of the
+        // queue
         public T RemoveFromFront()
         {
             if (IsEmpty)
@@ -80,48 +71,5 @@ namespace cis237assignment4
             return returnData;
         }
 
-        public T RemoveFromBack()
-        {
-            if (IsEmpty)
-                throw new Exception("List is empty");
-
-            T returnData = _lastNode.Data;
-
-            if (_firstNode == _lastNode)
-            {
-                _firstNode = null;
-                _lastNode = null;
-            }
-            else
-            {
-                Node current = _firstNode;
-
-                while (current.Next != _lastNode)
-                {
-                    current = current.Next;
-                }
-
-                _lastNode = current;
-
-                _lastNode.Next = null;
-            }
-
-            return returnData;
-        }
-
-        public void Display()
-        {
-            Console.WriteLine("The list is: ");
-
-            Node currentNode = _firstNode;
-
-            while (currentNode != null)
-            {
-                Console.WriteLine(currentNode.Data);
-                currentNode = currentNode.Next;
-            }
-
-            Console.WriteLine();
-        }
     }
 }

@@ -40,6 +40,7 @@ namespace cis237assignment4
         // SORT ORDER IN QUEUE: Astromech, Janitor, Utility, Protocol
         public void SortDroidsByModel()
         {
+            // Sort the various droids to their appropriate stacks
             for (int i = 0; i < lengthOfCollection; i++)
             {
                 if (droidCollection[i] != null)
@@ -55,32 +56,28 @@ namespace cis237assignment4
                 }
             }
 
-            Console.WriteLine(ProtocolDroidStack.Size);
-            Console.WriteLine(UtilityDroidStack.Size);
-            Console.WriteLine(AstromechDroidStack.Size);
-            Console.WriteLine(JanitorDroidStack.Size);
-
-            while (!AstromechDroidStack.IsEmpty)
+            // Add all stacks to the generic droid queue
+            while (!ProtocolDroidStack.IsEmpty)
             {
-                DroidQueue.AddToFront(AstromechDroidStack.RemoveFromBack());
-            }
-            while (!JanitorDroidStack.IsEmpty)
-            {
-                DroidQueue.AddToFront(JanitorDroidStack.RemoveFromBack());
+                DroidQueue.AddToFront(ProtocolDroidStack.RemoveFromFront());
             }
             while (!UtilityDroidStack.IsEmpty)
             {
-                DroidQueue.AddToFront(UtilityDroidStack.RemoveFromBack());
+                DroidQueue.AddToFront(UtilityDroidStack.RemoveFromFront());
             }
-            while (!ProtocolDroidStack.IsEmpty)
+            while (!JanitorDroidStack.IsEmpty)
             {
-                DroidQueue.AddToFront(ProtocolDroidStack.RemoveFromBack());
+                DroidQueue.AddToFront(JanitorDroidStack.RemoveFromFront());
             }
-
+            while (!AstromechDroidStack.IsEmpty)
+            {
+                DroidQueue.AddToFront(AstromechDroidStack.RemoveFromFront());
+            }
+            // Add the droids from the queue back into the array
             for (int i = 0; i < lengthOfCollection; i++)
             {
                  if (!DroidQueue.IsEmpty)
-                     droidCollection[i] = DroidQueue.RemoveFromBack();
+                     droidCollection[i] = DroidQueue.RemoveFromFront();
             }
         }
 
@@ -88,7 +85,6 @@ namespace cis237assignment4
         {
             var arraySize = droidCollection.Length;
 
-            
             IComparable<IDroid>[] collection = new IComparable<IDroid>[arraySize];
 
 

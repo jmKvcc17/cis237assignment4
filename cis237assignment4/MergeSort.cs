@@ -6,8 +6,12 @@ using System.Threading.Tasks;
 
 namespace cis237assignment4
 {
+    // Takes an IComparable array, performs
+    // a mergesort to sort droids in terms
+    // of their total cost
     class MergeSort
     {
+        // 
         private static IComparable<IDroid>[] _Array;
 
         public MergeSort() { }
@@ -40,27 +44,38 @@ namespace cis237assignment4
                 int mid2 = mid + 1;
                 Sort(droidArr, low, mid);
                 Sort(droidArr, mid + 1, high);
-                Merge(droidArr, low, mid, high);
+                Merge(droidArr, low, mid, mid2, high);
             } 
         }
 
-        public static void Merge(IComparable<IDroid>[] droidArr, int low, int mid, int high)
+        public static void Merge(IComparable<IDroid>[] droidArr, int left, int mid, int mid2, int right)
         {
-            int i = low;
-            int j = mid + 1;
+            int leftIndex = left;
+            int rightIndex = mid2;
+            int compbinedIndex = left;
 
-            for (int k = low; k <= high; k++)
+            // Copy elements into aux array
+            for (int k = left; k <= right; k++)
             {
                 _Array[k] = droidArr[k];
             }
 
-            for (int k = low; k <= high; k++)
+            while (leftIndex <= mid && rightIndex <= right)
+            {
+                if (droidArr[leftIndex].CompareTo(_Array[rightIndex])
+                {
+
+                }
+            }
+
+
+            for (int k = left; k <= right; k++)
             {
                 IDroid temp = (IDroid)droidArr[k];
 
                 if (j > mid)
                     droidArr[k] = _Array[j++];
-                else if (j > high)
+                else if (j > right)
                     droidArr[k] = _Array[j++];
                 else if (droidArr[k].CompareTo(temp) > 0)
                     droidArr[k] = _Array[j++];
