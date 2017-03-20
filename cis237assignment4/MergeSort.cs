@@ -6,36 +6,26 @@ using System.Threading.Tasks;
 
 namespace cis237assignment4
 {
+    // UNFINISHED
     // Takes an IComparable array, performs
     // a mergesort to sort droids in terms
     // of their total cost
     class MergeSort
     {
-        // 
+        // IComparable array to hold droids
         private static IComparable<IDroid>[] _Array;
 
         public MergeSort() { }
 
+        // First sort method
         public static void Sort(IComparable<IDroid>[] droidArray)
         {
             _Array = new IComparable<IDroid>[droidArray.Length];
             Sort(droidArray, 0, _Array.Length - 1);
-
-            int counter = 0;
-            
-            foreach (IDroid droid in _Array)
-            {
-                if (droid != null)
-                {
-                    Console.WriteLine(droid.TotalCost.ToString("C"));
-                    counter++;
-                }
-                    
-            }
-            Console.WriteLine(counter);
                 
         }
 
+        // Sort the arry
         public static void Sort(IComparable<IDroid>[] droidArr, int low, int high)
         {
             if ((high - low) >= 1)
@@ -48,6 +38,7 @@ namespace cis237assignment4
             } 
         }
 
+        // Merge array with aux array
         public static void Merge(IComparable<IDroid>[] droidArr, int left, int mid, int mid2, int right)
         {
             int leftIndex = left;
@@ -82,35 +73,6 @@ namespace cis237assignment4
                 else
                     droidArr[k] = _Array[j++];
             }
-
-
-            /*
-            for (int k = low; k <= high; k++)
-            {
-                droidArr[k] = _Array[k];
-            }
-
-            for (int j = mid + 1; j <= high; j++)
-            {
-                droidArr[j] = _Array[high - j + mid + 1];
-            }
-
-
-
-            i = low;
-            jo = high;
-
-            for (int k = low; k <= high; k++)
-            {
-                IDroid temp = (IDroid)droidArr[i];
-                if (droidArr[jo].CompareTo((Droid)temp) < 0)
-                {
-                    _Array[k] = (Droid)droidArr[jo--];
-                }
-                else
-                    _Array[k] = (Droid)droidArr[i++];
-            }
-            */
         }
        
     }

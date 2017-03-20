@@ -24,20 +24,17 @@ namespace cis237assignment4
             set { totalCost = value; }
         }
 
-        public string Model // ********
+        public string Model
         {
             get { return model; }
         }
 
+        // Compares two IComparable Droids, return 1, 0, -1
+        // depending on which one's bigger
         int IComparable<IDroid>.CompareTo(IDroid array)
         {
             return this.TotalCost.CompareTo(array.TotalCost);
         }
-
-        //int IDroid.CompareTo(Droid array)
-        //{
-        //    return this.TotalCost.CompareTo(array.TotalCost);
-        //}
 
         //Constructor that takes the main 3 parameters shared amongst all 4 types of droids
         public Droid(string Material, string Model, string Color)

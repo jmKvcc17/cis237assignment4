@@ -14,14 +14,14 @@ namespace cis237assignment4
         private IDroid[] droidCollection;
         //Private variable to hold the length of the Collection
         private int lengthOfCollection;
+        // Stack variables to hold the various droids (Generic)
         private GenericStack<ProtocolDroid> ProtocolDroidStack = new GenericStack<ProtocolDroid>(); // ***************
         private GenericStack<UtilityDroid> UtilityDroidStack = new GenericStack<UtilityDroid>(); // ***************
         private GenericStack<AstromechDroid> AstromechDroidStack = new GenericStack<AstromechDroid>(); // ***************
         private GenericStack<JanitorDroid> JanitorDroidStack = new GenericStack<JanitorDroid>(); // ***************
 
+        // Generic queue class to hold the droids from their stacks
         private GenericQueue<Droid> DroidQueue = new GenericQueue<Droid>();
-
-        //private MergeSort mergeDroids = new MergeSort();
 
         //Constructor that takes in the size of the collection.
         //It sets the size of the internal array that will be used.
@@ -80,23 +80,28 @@ namespace cis237assignment4
                      droidCollection[i] = DroidQueue.RemoveFromFront();
             }
         }
-
+        
+        // Perform mergesort on droid collection
         public void MergeSortDroids()
         {
             var arraySize = droidCollection.Length;
 
+            // Create IComparable collection to 
+            // hold droids
             IComparable<IDroid>[] collection = new IComparable<IDroid>[arraySize];
 
-
+            // Fill collection with droidCollection
             for (int i = 0; i < lengthOfCollection; i++)
             {
                 droidCollection[i].CalculateTotalCost();
                 collection[i] = (IComparable<IDroid>)droidCollection[i];
             }
 
+            // Sort the droids
             MergeSort.Sort(collection);
         }
 
+        // Adds hard coded droids when droidColletion object is created
         protected void AddHardCoded()
         {
             // Add Protocol droids
